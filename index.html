@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hip & Shoulder Rehab (Streaming Videos)</title>
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#101a2f;
+  --card2:#0f1830;
+  --text:#eaf0ff;
+  --muted:#b9c7ff;
+  --accent:#6ee7ff;
+  --accent2:#a78bfa;
+  --danger:#ff6b6b;
+  --ok:#34d399;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius:18px;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:18px 16px 80px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(110,231,255,.18), transparent 60%),
+              radial-gradient(900px 500px at 100% 10%, rgba(167,139,250,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+}
+header{
+  position:sticky; top:0; z-index:9;
+  padding:14px 0 10px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(to bottom, rgba(11,18,32,.92), rgba(11,18,32,.65));
+}
+h1{
+  margin:0 0 6px;
+  font-size:22px; line-height:1.2;
+  letter-spacing:.2px;
+}
+.sub{
+  margin:0;
+  font-size:13px; color:var(--muted);
+}
+.tabs{
+  display:flex; gap:8px; overflow:auto; padding:12px 0 2px;
+  scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  flex:0 0 auto;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  color:var(--text);
+  background: rgba(255,255,255,.06);
+  font-size:13px;
+  text-decoration:none;
+}
+.tab.active{
+  border-color: rgba(110,231,255,.55);
+  box-shadow: 0 0 0 3px rgba(110,231,255,.12);
+}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius);
+  padding:14px;
+  box-shadow: var(--shadow);
+  margin:12px 0;
+}
+.day-title{
+  margin:0 0 6px;
+  font-size:18px;
+}
+.day-sub{
+  margin:0 0 10px; color:var(--muted); font-size:13px;
+}
+.exercise{
+  background: rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: 16px;
+  padding:12px;
+  margin:10px 0 12px;
+}
+.ex-h{
+  margin:0 0 6px;
+  font-size:16px;
+}
+.badges{
+  display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 10px;
+}
+.badge{
+  font-size:12px; padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:var(--text);
+}
+.badge.ok{ border-color: rgba(52,211,153,.55); }
+.badge.warn{ border-color: rgba(255,107,107,.55); }
+.badge.purple{ border-color: rgba(167,139,250,.55); }
+.video{
+  width:100%;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:#000;
+  margin:10px 0 12px;
+}
+.video iframe{
+  width:100%; height:100%; border:0;
+}
+.details{
+  display:grid; gap:10px;
+}
+.block{
+  background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding:10px 10px 8px;
+}
+.block h4{
+  margin:0 0 6px; font-size:13px;
+  letter-spacing:.2px;
+  color: var(--accent);
+}
+.block ul{
+  margin:0; padding-left:18px;
+  color: var(--text);
+  line-height:1.45;
+  font-size:13px;
+}
+.links{
+  display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 12px;
+  border-radius: 14px;
+  border:1px solid rgba(110,231,255,.40);
+  background: rgba(110,231,255,.10);
+  color:var(--text);
+  text-decoration:none;
+  font-size:13px;
+}
+.btn.secondary{
+  border-color: rgba(167,139,250,.45);
+  background: rgba(167,139,250,.10);
+}
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color: var(--muted);
+  line-height:1.5;
+}
+hr.sep{
+  border:0; height:1px;
+  background: rgba(255,255,255,.10);
+  margin:12px 0;
+}
+</style>
+
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+</head>
+<body>
+<header>
+  <h1>Hip & Shoulder Rehab (Streaming Videos)</h1>
+  <p class="sub">Strict rehab form • Tap a Day • Each exercise has setup + cues + video demo</p>
+  <nav class="tabs">
+    <a class="tab active" href="#day1">Day 1</a>
+    <a class="tab" href="#day2">Day 2</a>
+    <a class="tab" href="#day3">Day 3</a>
+    <a class="tab" href="#day4">Day 4</a>
+  </nav>
+</header>
+
+<div class="card">
+  <h2 class="day-title">How to use this at the gym</h2>
+  <p class="day-sub">Best workflow on iPhone: open → scroll Day section → play the video → follow cues.</p>
+  <div class="details">
+    <div class="block">
+      <h4>Pain rules (simple)</h4>
+      <ul>
+        <li>0–3/10 discomfort is OK if it settles within 24 hours.</li>
+        <li>Stop if sharp pain, catching, giving way, numbness/tingling, or symptoms worsen during the session.</li>
+        <li>Quality beats quantity. Slow, controlled reps.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h4>Save to Home Screen</h4>
+      <ul>
+        <li>Open this file in Safari → Share → <b>Add to Home Screen</b>.</li>
+        <li>Then it behaves like an “app icon” on your phone.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="day1" class="card">
+<h2 class="day-title">Day 1 • Hip (4 exercises) + Shoulder (3 exercises)</h2>
+<p class="day-sub">Scroll exercise-by-exercise. Tap video play. Keep reps slow and controlled.</p>
+<hr class="sep">
+<div class="exercise">
+<h3 class="ex-h">Resisted Bridge (band above knees)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set, 5‑sec hold at top (confirm with your physio if they intended more sets).</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/qbWJgwXJ_AY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Band just above knees; feet hip‑width; ribs down; pelvis neutral.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Light tension into band (knees gently out). Brace core like you’re about to be tapped in the stomach.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Push through heels; lift hips until shoulders‑hips‑knees line up.</li>
+<li>Keep knees tracking over mid‑foot (don’t let them cave in).</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Squeeze glutes hard for 5 seconds; keep lower back relaxed (no arching).</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Glutes + hamstrings. You should NOT feel pinching at the front of the hip or low‑back dominance.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Over‑arching the low back at the top.</li>
+<li>Feet too far away (hamstrings cramp) or too close (quads dominate).</li>
+<li>Knees collapsing in despite band.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://www.askdoctorjo.com/glute-strengthening-exercises-resistance-bands/" target="_blank" rel="noopener">▶ Open video: Doctor Jo (band glute work incl. bridges)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Resisted Hip Extension + External Rotation (prone)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set (as per physio email).</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="block"><h4>Video</h4><ul><li>No single perfect embed for this one — use the “Open video” buttons below.</li></ul></div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Lie on stomach; legs straight; band around knees/thighs as prescribed.</li>
+<li>Keep pelvis heavy on the floor; gently brace abdomen.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Point toes up slightly (dorsiflex), rotate leg outward slightly (from hip), keep knee straight.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Lift leg a few inches using glute (not low back).</li>
+<li>Move slowly: 2 sec up, 2 sec down.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Stop before your pelvis tips or your low back arches.</li>
+<li>Think: “long leg, small lift.”</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Glute max/hamstring + deep hip rotators.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Lifting too high and arching the back.</li>
+<li>Turning the whole body/pelvis instead of rotating at the hip.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://us.physitrack.com/home-exercise-video/resisted-hip-extension-and-er" target="_blank" rel="noopener">▶ Open video: Physitrack: Resisted hip extension &amp; ER (video)</a>
+<a class="btn" href="https://healthsciences.unimelb.edu.au/departments/physiotherapy/chesm/video-library/exercise/hip-oa/hip-external-rotation-exercises" target="_blank" rel="noopener">▶ Open video: University of Melbourne: Prone theraband resisted ER (video library)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Resisted Hip Internal Rotation (prone, knees bent)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/L1buo9QQkNc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Lie on stomach; bend knees to ~90°.</li>
+<li>Band around ankles (or as prescribed).</li>
+<li>Hips stay square to the floor.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Gently brace core; keep thighs on the floor.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Rotate the working foot outward (so the hip internally rotates).</li>
+<li>Slow and controlled — avoid momentum.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Pause 1–2 sec at end range without pelvis rolling.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Front/side of hip (TFL/deep rotators) and control muscles.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Pelvis rolling open.</li>
+<li>Knee drifting away; movement coming from lumbar spine.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://www.rehabhero.ca/exercise/prone-hip-internal-rotation" target="_blank" rel="noopener">▶ Open video: RehabHero: Prone hip internal rotation (band)</a>
+<a class="btn secondary" href="https://na.physitrack.com/home-exercise-video/resisted-hip-internal-rotation-in-prone" target="_blank" rel="noopener">▶ Open video: Physitrack: Resisted hip internal rotation in prone (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Resisted Straight Leg Raise (SLR)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/vlyAfKAfGrE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Lie on back; one knee bent, other leg straight.</li>
+<li>Band at ankles if prescribed; keep toes pulled up.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Lock knee straight by tightening thigh (quad).</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Lift straight leg to ~30–45° (or comfortable) without bending knee.</li>
+<li>Lower slowly without letting heel slam.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Pause briefly; keep pelvis still (no hiking).</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Front thigh (quad) + hip flexor; mild effort in core.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Knee bending.</li>
+<li>Lower back arching; ribs flaring.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://www.southtees.nhs.uk/resources/straight-leg-raise/" target="_blank" rel="noopener">▶ Open video: NHS: Straight leg raise resource</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Scapular Retraction (band around wrists)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set, 5‑sec hold.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/M16fGLKysto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Stand tall; band looped around wrists; elbows soft.</li>
+<li>Neck long; ribs stacked over pelvis.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Let shoulders relax down (no shrug).</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Pull shoulder blades “back and down” and hold.</li>
+<li>Keep chin gently tucked; don’t flare ribs.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Feel a firm squeeze between shoulder blades for 5 sec.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Mid/lower traps + rhomboids. Should not pinch the front of shoulder.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Shrugging up.</li>
+<li>Over‑arching low back to ‘cheat’ the squeeze.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://na.physitrack.com/home-exercise-video/scapula-retraction-with-band" target="_blank" rel="noopener">▶ Open video: Physitrack: Scapula retraction with band (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Shoulder Flexion with External Rotation (band around wrists)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/PzaIO_huS08" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Loop light band around wrists; elbows close to sides to start.</li>
+<li>Hands slightly apart to create light outward tension.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Set shoulder blades gently down and back; ribs down.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Maintain band tension (wrists trying to spread) while raising arms.</li>
+<li>Move within pain‑free range; keep neck relaxed.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>At top, you should still feel outward tension (ER) — no wrist collapse.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Rotator cuff + upper back control; not upper traps.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Shrugging.</li>
+<li>Losing band tension as arms go up.</li>
+<li>Flaring ribs/arching back.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://uk.physitrack.com/home-exercise-video/resisted-shoulder-external-rotation-and-flexion" target="_blank" rel="noopener">▶ Open video: Physitrack: Band resisted shoulder ER and flexion (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Banded Wall Clock / Scapular Clock</h3>
+<div class="badges">
+<span class="badge purple">Dose: 5 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/6KW20pgMN2A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Band around hands; stand facing wall.</li>
+<li>Hands on wall at shoulder height; gentle band tension.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Shoulder blades ‘set’ (back/down) and ribs down.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Slide one hand to different ‘clock’ positions while the other stabilizes.</li>
+<li>Go slow and keep trunk still.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>At farthest reach: keep shoulder blade controlled (no shrug/winging).</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Serratus + rotator cuff + mid back control.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Shrugging or winging shoulder blade.</li>
+<li>Twisting body to reach.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://elite-performance-institute.com/exercise-library/shoulder-exercises/wall-clock-exercise-and-variations/" target="_blank" rel="noopener">▶ Open video: Elite Performance Institute: Wall clock variations</a>
+</div>
+</div>
+</section>
+<section id="day2" class="card">
+<h2 class="day-title">Day 2 • Hip Strength/Balance + Shoulder Core</h2>
+<p class="day-sub">Scroll exercise-by-exercise. Tap video play. Keep reps slow and controlled.</p>
+<hr class="sep">
+<div class="exercise">
+<h3 class="ex-h">Resisted Hip Abduction (side‑lying, band at ankles)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/0_GfJewc9qA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Lie on side; bottom knee slightly bent; top leg straight.</li>
+<li>Band at ankles; core gently braced.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Top leg in line with body (don’t drift forward). Toes slightly down.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Lift top leg straight up slowly; keep pelvis stacked.</li>
+<li>Lower with control.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Stop before pelvis rolls back; pause briefly.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Outer hip/glute med (side of butt).</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Hip rolling open.</li>
+<li>Leg drifting forward (hits hip flexor/TFL).</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://us.physitrack.com/home-exercise-video/resisted-hip-abduction-in-side-lying---version-3" target="_blank" rel="noopener">▶ Open video: Physitrack: Resisted hip abduction side‑lying (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Resisted Clams</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/90YzNC1YhAI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Side‑lying; hips stacked; knees bent; band above knees/thighs.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Feet together; slight forward tilt of pelvis (ribs down).</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Open top knee without rolling hips back.</li>
+<li>Close slowly.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Pause briefly; keep feet together.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Outer glute (not front of hip).</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Rolling pelvis back.</li>
+<li>Letting feet separate.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://www.dailymotion.com/video/x9i1u20" target="_blank" rel="noopener">▶ Open video: Mobile Physio: Clamshell (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Single‑Leg Calf Raise (on wobble cushion/foam)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set each side.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/u1Yc75YdiJA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Stand on pad; light finger support on a rail if needed.</li>
+<li>Toes forward; tripod foot (big toe, little toe, heel).</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Lock knee softly (not hyperextended).</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Rise up slowly; pause; lower for 2–3 seconds.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>At top: stay tall, don’t let ankle roll out.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Calf + foot/ankle stabilizers.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Bouncing.</li>
+<li>Letting arch collapse or ankle roll.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://uk.physitrack.com/home-exercise-video/standing-single-leg-calf-raise-on-balance-pad" target="_blank" rel="noopener">▶ Open video: Physitrack: Single‑leg calf raise on balance pad (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Single‑Leg Hinge (Hip Hinge / Single‑Leg RDL pattern)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/dsXuDBh-vZ8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Stand tall; soft knee bend on stance leg.</li>
+<li>Hips square; hands on hips if helpful.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Brace core; keep back long (neutral).</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Hinge from hip: chest and back leg move together.</li>
+<li>Stop when you feel hamstring tension; return by squeezing glute.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>At bottom: hips square; no twisting; keep balance.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Hamstring + glute on stance leg.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Rounding back.</li>
+<li>Hips opening/rotating out.</li>
+<li>Knee collapsing inward.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://library.theprehabguys.com/vimeo-video/drills-to-master-the-sl-rdl/" target="_blank" rel="noopener">▶ Open video: Prehab Guys: drills to master single‑leg RDL</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Lunge on Unstable Surface (balance pad / wobble cushion)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/BVdzT1GbGqE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Pad in front; step onto center of pad.</li>
+<li>Torso tall; front foot tripod.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Brace core; pelvis level.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Lower straight down; knee tracks over 2nd–3rd toe.</li>
+<li>Push through front foot to rise.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Top: regain balance; avoid wobbling knee inward.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Glute/quads + ankle control.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Knee caving in.</li>
+<li>Leaning forward excessively.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://na.physitrack.com/home-exercise-video/lunging-onto-a-balance-mat" target="_blank" rel="noopener">▶ Open video: Physitrack: Lunging onto a balance mat (video)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Forearm Plank to Push‑Up Position (Plank Up‑Down)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 30 seconds × 1 set (as prescribed).</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/k8Jjs-3SrFg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Forearm plank: elbows under shoulders; glutes gently on; ribs down.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Make body a straight line head‑to‑heels.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Press up one arm at a time to high plank; lower one arm at a time.</li>
+<li>Keep hips level (no twisting).</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>High plank: hands under shoulders; shoulder blades stable.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Core anti‑rotation + shoulder stability.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Hips rocking side to side.</li>
+<li>Shrugging shoulders.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://us.physitrack.com/home-exercise-video/push-up-to-forearm-plank" target="_blank" rel="noopener">▶ Open video: Physitrack: Push‑up to forearm plank (video)</a>
+</div>
+</div>
+</section>
+<section id="day3" class="card">
+<h2 class="day-title">Day 3 • Yoga / Stretches (Mobility)</h2>
+<p class="day-sub">Scroll exercise-by-exercise. Tap video play. Keep reps slow and controlled.</p>
+<hr class="sep">
+<div class="exercise">
+<h3 class="ex-h">Hip Rotation Mobility (kneeling drill)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 10 reps × 1 set.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/AU3Fy3lWdXw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Kneel on a pillow for comfort.</li>
+<li>Keep pelvis square; gentle brace.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Move only through the hip (not the low back).</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Slowly rotate through the range you own; breathe steadily.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Stop at first strong stretch; no pinching.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Deep hip capsule stretch/mobility.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Forcing range; compensating with low back.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://www.peak-physio.com.au/exercise/hip-rotation-mobility-4-point-kneel/" target="_blank" rel="noopener">▶ Open video: Peak Physio: Hip rotation mobility (4‑point kneel)</a>
+<a class="btn" href="https://www.youtube.com/watch?v=u897hepjVD0" target="_blank" rel="noopener">▶ Open video: Simple Speed Coach: Over/under hurdle mobility</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Hip Mobility Combo (Adductors → Hip Flexors → Pigeon)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 3 reps × 1 set, 30‑sec hold each position.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="block"><h4>Video</h4><ul><li>No single perfect embed for this one — use the “Open video” buttons below.</li></ul></div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Move slowly between positions; keep breathing nasal and calm.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Adductor stretch: side lunge, extended leg straight, toes forward.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Transition: turn into hip‑flexor/prisoner stretch; squeeze back‑leg glute.</li>
+<li>Then move into pigeon; hips square as able.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>In each hold: exhale and let tension drop; no sharp pain.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Inner thigh → front of hip → glute/buttock stretch.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Letting low back take over in hip flexor stretch.</li>
+<li>Twisting in pigeon; forcing knee angle.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn secondary" href="https://uk.physitrack.com/home-exercise-video/hip-mobility-combo" target="_blank" rel="noopener">▶ Open video: Physitrack: Hip mobility combo (video)</a>
+<a class="btn" href="https://www.youtube.com/watch?v=w0nNlqBmiTw" target="_blank" rel="noopener">▶ Open video: Momenta: Pigeon stretch demo</a>
+<a class="btn" href="https://www.youtube.com/watch?v=fPaF3oro6hE" target="_blank" rel="noopener">▶ Open video: E3 Rehab: Hip ROM mobility (longer guide)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Cross‑Body Shoulder Stretch</h3>
+<div class="badges">
+<span class="badge purple">Dose: 3 reps × 1 set, 30‑sec hold.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/O4NYADDgEIs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Stand/sit tall; keep shoulder blade down.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Bring arm across chest at shoulder height.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Use other arm to gently pull closer (no shrugging).</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Hold where you feel stretch behind shoulder.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Posterior shoulder (back of shoulder).</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Shoulder hiking toward ear.</li>
+<li>Pulling into pain/pinching.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://ota.org/for-patients/physical-therapy/shoulder" target="_blank" rel="noopener">▶ Open video: OTA: Shoulder cross body stretch (video list)</a>
+</div>
+</div>
+<div class="exercise">
+<h3 class="ex-h">Tricep Stretch + Neck Stretch (Upper Trap)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 3 reps × 1 set, 30‑sec hold each.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/MWzR-WE_nhU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Keep breathing slow; shoulders relaxed down.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Tricep: elbow points up; hand behind head.</li>
+<li>Neck: ear toward shoulder; opposite arm reaching down.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Gentle pull only — never force.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Hold at mild‑moderate stretch; jaw relaxed.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>Tricep/lat line + side of neck/upper trap.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Shrugging into the stretch.</li>
+<li>Cranking the neck.</li>
+</ul></div>
+</div>
+<div class="links">
+<a class="btn" href="https://www.youtube.com/watch?v=uwLcpgIqpnU" target="_blank" rel="noopener">▶ Open video: NUH Physio: Upper trapezius stretch (video)</a>
+<a class="btn" href="https://www.cuh.nhs.uk/patient-information/neck-exercises-and-advice/" target="_blank" rel="noopener">▶ Open video: Cambridge Univ Hospitals: neck exercises advice</a>
+</div>
+</div>
+</section>
+<section id="day4" class="card">
+<h2 class="day-title">Day 4 • Cardio</h2>
+<p class="day-sub">Scroll exercise-by-exercise. Tap video play. Keep reps slow and controlled.</p>
+<hr class="sep">
+<div class="exercise">
+<h3 class="ex-h">Cardio (pain‑free)</h3>
+<div class="badges">
+<span class="badge purple">Dose: 15 min stationary bike + 15 min incline walk (comfortable pace &amp; incline). Swimming optional.</span>
+<span class="badge ok">Focus: controlled reps</span>
+</div>
+<div class="block"><h4>Video</h4><ul><li>No single perfect embed for this one — use the “Open video” buttons below.</li></ul></div>
+<div class="details">
+<div class="block"><h4>Setup</h4><ul>
+<li>Choose a load that keeps symptoms ≤ 3/10 during and settles within 24 hours.</li>
+</ul></div>
+<div class="block"><h4>Start (what to think)</h4><ul>
+<li>Bike: saddle height so knee has slight bend at bottom stroke.</li>
+</ul></div>
+<div class="block"><h4>Move (direction &amp; control)</h4><ul>
+<li>Walk: shorter stride, steady cadence, relaxed shoulders.</li>
+</ul></div>
+<div class="block"><h4>Peak / End range</h4><ul>
+<li>Stop immediately if sharp pain, catching, or giving‑way.</li>
+</ul></div>
+<div class="block"><h4>Where you should feel it</h4><ul>
+<li>You should feel “worked” but not aggravated.</li>
+</ul></div>
+<div class="block"><h4>Common mistakes to avoid</h4><ul>
+<li>Pushing intensity too fast.</li>
+<li>Ignoring symptom flare that lasts into next day.</li>
+</ul></div>
+</div>
+</div>
+</section>
+
+<div class="card footer">
+  <b>Note:</b> This guide summarizes your physio plan into a mobile format for gym use. If any exercise increases pain or your physio updates your prescription, follow the physio’s latest advice.
+</div>
+
+<script>
+// Tab highlight on scroll
+const tabs = Array.from(document.querySelectorAll('.tab'));
+const sections = tabs.map(t => document.querySelector(t.getAttribute('href')));
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      tabs.forEach(t=>t.classList.remove('active'));
+      const id = '#'+e.target.id;
+      const tab = tabs.find(t=>t.getAttribute('href')===id);
+      if(tab) tab.classList.add('active');
+    }
+  });
+},{rootMargin:'-50% 0px -45% 0px', threshold:0.01});
+sections.forEach(s=>obs.observe(s));
+</script>
+
+</body></html>
